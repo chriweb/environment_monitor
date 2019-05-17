@@ -6,8 +6,13 @@ import serial, time
 from datetime import datetime, date
 from influxdb import InfluxDBClient
 
+##### VARIABLES CHANGE IF NECESSARY
+dbname = "arduino"
+user = ""
+passwd = ""
+
 ######  CONNECT TO InfluxDB LOCAL
-dbClient = InfluxDBClient('localhost', 8086, '', '', 'arduino')
+dbClient = InfluxDBClient('localhost', 8086, user, passwd, dbname)
 
 ###### START INFINITE CICLE
 count = 0 
@@ -18,6 +23,15 @@ while True:
 	
 	###### create actual timestamp
 	TS=datetime.timestamp(datetime.now())
+	
+	#### write output to a file
+	##### OPEN A FILE FOR TRACKING
+	f = open("./arduino_read.out","a")
+	###print("Leggo e scrivo")
+	tempo = datetime.fromtimestamp(TS)
+	f.write(str(tempo) + " - " + x.decode("utf-8") + " \n" )
+	##### CLOSE THE FILE
+	f.close()
 
 	#### discard first line of input
 	if count > 0 :
@@ -32,14 +46,6 @@ while True:
 		##### WRITE THE LIST TO DB
 		dbClient.write_points(datas)
 
-		#### write output to a file
-		##### OPEN A FILE FOR TRACKING
-		f = open("./arduino_read.out","a")
-		###print("Leggo e scrivo")
-		tempo = datetime.fromtimestamp(TS)
-		f.write(str(tempo) + " - " + x.decode("utf-8") + " \n" )
-		##### CLOSE THE FILE 
-		f.close()
 	#### wait a pair if secs and increase the counter
 	time.sleep(2)
 	count = count + 1
