@@ -1,0 +1,38 @@
+# environment_monitor
+
+#############################################
+#
+### HELPER FOR PYTHON 3
+#
+#############################################
+######## HOW READ FROM SERIAL
+#pip3.6 install PySerial
+#import serial
+#with serial.Serial('/dev/ttyACM0',9600) as ser:
+#	print(ser.read(26))
+######## HOW CREATE TIME STAMP
+#from datetime import datetime, date
+#print(datetime.timestamp(datetime.now()))
+######## HOW WRITE TO INFLUX
+#pip3.6 install influxdb
+#
+#from influxdb import InfluxDBClient
+#dbClient = InfluxDBClient('localhost', 8086, '', '', 'arduino')  
+#dbClient.write_points(json_body)
+######### HOW transform data into json
+#import json
+#d = json.loads(x.decode("utf-8")) ## Transform a string to JSON
+#
+####### HOW TO SLEEP 2s
+#import time
+#time.sleep(2)
+
+
+#################################################
+#
+#	HELPER FOR INFLUXDB
+#
+################################################
+#influx
+#	create database arduino
+#	exit
