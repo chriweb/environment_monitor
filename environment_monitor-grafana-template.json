@@ -144,7 +144,8 @@
     {
       "aliasColors": {
         "Temperatura": "rgb(180, 25, 27)",
-        "Temperatura °C": "dark-red"
+        "Temperatura °C": "dark-red",
+        "Temperature °C": "rgb(238, 68, 6)"
       },
       "bars": false,
       "dashLength": 10,
@@ -177,7 +178,7 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "Temperatura",
+          "alias": "",
           "yaxis": 1
         }
       ],
@@ -251,7 +252,7 @@
         {
           "decimals": null,
           "format": "short",
-          "label": "Temperatura °C",
+          "label": "°C",
           "logBase": 1,
           "max": "50",
           "min": "0",
@@ -468,7 +469,7 @@
       "yaxes": [
         {
           "format": "short",
-          "label": null,
+          "label": "%",
           "logBase": 1,
           "max": "100",
           "min": "0",
@@ -647,5 +648,5 @@
   "timezone": "",
   "title": "Environmental Monitor",
   "uid": "pp4XWnWWk",
-  "version": 14
+  "version": 17
 }
